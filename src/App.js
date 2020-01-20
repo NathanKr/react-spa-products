@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Switch, Link, Route } from "react-router-dom";
 import Home from "./Home";
 import Products from "./Products";
-import Product from './Product'
+import Product from "./Product";
 
 class App extends Component {
   state = { product: null };

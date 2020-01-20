@@ -3,9 +3,11 @@ import { Redirect } from "react-router-dom";
 
 class Products extends Component {
   state = { navigateToProduct: false };
+
   // --- products is an array of objects , each has : name , img
   // --- list is an array of objects , each has : name , img
   products = [
+    // -- shirts product
     {
       name: "Shirts",
       img:
@@ -23,6 +25,7 @@ class Products extends Component {
         }
       ]
     },
+    // --- shoes products
     {
       name: "Shoes",
       img:
@@ -40,6 +43,7 @@ class Products extends Component {
         }
       ]
     },
+    // --- boots product
     {
       name: "Boots",
       img:
@@ -60,20 +64,21 @@ class Products extends Component {
   ];
 
   render() {
-    const elements = this.products.map((product, index) => (
+    const elements = this.products.map((item, index) => (
       <div
         onClick={() => {
           this.props.setProduct(this.products[index]);
-          this.setState({ navigateToProduct: true });
+          this.setState({navigateToProduct:true})
         }}
+        key={index}
       >
-        <p key={index}>{product.name}</p>
-        <img src={product.img} alt="picture" />
+        <p>{item.name}</p>
+        <img src={item.img} alt="picture" />
       </div>
     ));
 
-    if (this.state.navigateToProduct) {
-      return <Redirect to="/Product" />;
+    if(this.state.navigateToProduct){
+        return <Redirect to='/Product'/>
     }
 
     return (
